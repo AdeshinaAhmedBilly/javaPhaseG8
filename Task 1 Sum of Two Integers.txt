@@ -1,0 +1,162 @@
+Task 1: Sum of Two Integers
+Pseudocode:
+
+Generate two random integers less than 100.
+Prompt the user to enter the sum of the two integers.
+Compare the user's input with the actual sum.
+Print "True" if the answer is correct, "False" otherwise.
+CopyReplit
+import random
+
+# Generate two random integers under 100
+num1 = random.randint(0, 99)
+num2 = random.randint(0, 99)
+
+# Prompt the user for the sum
+user_sum = int(input(f"What is the sum of {num1} and {num2}? "))
+
+# Check if the sum is correct
+correct_sum = num1 + num2
+print(user_sum == correct_sum)
+Task 2: Sort Three Integers
+Pseudocode:
+
+Prompt the user to enter three integers.
+Store the integers in a list.
+Sort the list.
+Print the sorted list.
+CopyReplit
+# Prompt user for three integers
+numbers = []
+for i in range(3):
+    num = int(input(f"Enter number {i + 1}: "))
+    numbers.append(num)
+
+# Sort and print the numbers
+numbers.sort()
+print(", ".join(map(str, numbers)))
+Task 3: Power Table
+Pseudocode:
+
+Loop over a range of numbers from 1 to 5.
+For each number, compute its power and print in a formatted way.
+CopyReplit
+# Display power table
+print("a b a**b")
+for a in range(1, 6):
+    for b in range(2, 7):
+        print(f"{a} {b} {a ** b}")
+Task 4: Sum of Digits
+Pseudocode:
+
+Read an integer input from the user.
+Convert integer to string to iterate over digits.
+Convert each character back to integer and calculate sum.
+CopyReplit
+# Read input between 0 and 1000
+num = int(input("Enter an integer between 0 and 1000: "))
+if 0 <= num <= 1000:
+    digit_sum = sum(int(digit) for digit in str(num))
+    print(f"The sum of the digits is: {digit_sum}")
+else:
+    print("Input out of range.")
+Task 5: Function for Power Table with TDD
+Pseudocode:
+
+Create a function to generate the power table.
+Return the results in a suitable format.
+Write tests to validate the function outputs.
+CopyReplit
+def power_table():
+    result = []
+    for a in range(1, 6):
+        for b in range(2, 7):
+            result.append((a, b, a ** b))
+    return result
+
+# Example test cases to validate
+def test_power_table():
+    # Test output for specific values
+    output = power_table()
+    assert output == [(1, 2, 1), (1, 3, 1), (1, 4, 1), (1, 5, 1), (1, 6, 1),
+                      (2, 2, 4), (2, 3, 8), (2, 4, 16), (2, 5, 32), (2, 6, 64),
+                      (3, 2, 9), (3, 3, 27), (3, 4, 81), (3, 5, 243), (3, 6, 729),
+                      (4, 2, 16), (4, 3, 64), (4, 4, 256), (4, 5, 1024), (4, 6, 4096),
+                      (5, 2, 25), (5, 3, 125), (5, 4, 625), (5, 5, 3125), (5, 6, 15625)]
+
+# Run the test
+test_power_table()
+Task 6: Future Day of the Week
+Pseudocode:
+
+Prompt user to enter today's day and the number of days to add.
+Calculate the future day.
+Print the result.
+CopyReplit
+# Mapping of numbers to days
+days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+# Get today's day and number of days to add
+today = int(input("Enter today's day (0 for Sunday, 1 for Monday, ..., 6 for Saturday): "))
+days_to_add = int(input("Enter the number of days to add: "))
+
+# Calculate future day
+future_day = (today + days_to_add) % 7
+print(f"Today is {days[today]} and the future day is {days[future_day]}.")
+Task 7: Multiply Two Numbers without *
+Pseudocode:
+
+Create a function to multiply two numbers using addition.
+Write tests for edge cases.
+CopyReplit
+def multiply(num1, num2):
+    result = 0
+    for _ in range(abs(num2)):
+        result += num1
+    return result if num2 >= 0 else -result
+
+# Example test functions
+def test_multiply():
+    assert multiply(3, 4) == 12
+    assert multiply(-3, 4) == -12
+    assert multiply(3, -4) == -12
+    assert multiply(0, 4) == 0
+    assert multiply(3, 0) == 0
+    assert multiply(-3, -4) == 12
+
+# Run the tests
+test_multiply()
+Task 8: Random Subtraction Problems
+Pseudocode:
+
+Generate random subtraction problems.
+Allow the user to answer up to 10 times for each problem.
+Track scores and provide feedback.
+Display final score at end.
+CopyReplit
+import random
+
+def subtraction_quiz():
+    score = 0
+    for _ in range(5):  # Create 5 questions
+        num1 = random.randint(0, 99)
+        num2 = random.randint(0, num1)  # Ensure num1 >= num2
+        correct_answer = num1 - num2
+        
+        # Allow up to 10 attempts
+        for attempt in range(10):
+            user_answer = int(input(f"What is {num1} - {num2}? Attempt {attempt + 1}/10: "))
+            if user_answer == correct_answer:
+                print("Correct!")
+                score += 1
+                break
+            else:
+                print("Incorrect, try again.")
+        else:
+            print(f"The correct answer was {correct_answer}.")
+    
+    print(f"Your final score is: {score} out of 5.")
+
+subtraction_quiz()
+Summary
+Each task has been tackled individually with pseudocode and Python code. You may wish to run these code segments one at a time to ensure that they function as intended. For production code or larger projects, consider more rigorous testing strategies and input validation.

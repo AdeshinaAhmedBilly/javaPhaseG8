@@ -1,0 +1,229 @@
+Task 1: Sum of Two Integers
+Pseudocode:
+
+livecodeserver
+
+Copy
+1. Generate two random integers under 100
+2. Prompt user to enter the sum of these two integers
+3. If user input equals the calculated sum:
+    a. Print "True"
+   Else:
+    b. Print "False"
+Python Code:
+
+python
+
+Run
+
+Copy
+import random
+
+def check_sum():
+    num1 = random.randint(0, 99)
+    num2 = random.randint(0, 99)
+    user_sum = int(input(f"Enter the sum of {num1} and {num2}: "))
+    correct_sum = num1 + num2
+    print(correct_sum == user_sum)
+
+check_sum()
+Task 2: Sort Three Integers
+Pseudocode:
+
+
+Copy
+1. Prompt user to enter three integers
+2. Store integers in a list
+3. Sort the list
+4. Print sorted list
+Python Code:
+
+python
+
+Run
+
+Copy
+def sort_three_numbers():
+    numbers = []
+    for i in range(3):
+        num = int(input(f"Enter number {i+1}: "))
+        numbers.append(num)
+    numbers.sort()
+    print(", ".join(map(str, numbers)))
+
+sort_three_numbers()
+Task 3: Display Power Table
+Pseudocode:
+
+less
+
+Copy
+1. For a in range 1 to 5:
+    a. For b in range 2 to 7:
+        i. Calculate a ** b
+        ii. Print a, b, a ** b
+Python Code:
+
+python
+
+Run
+
+Copy
+def display_power_table():
+    for a in range(1, 6):
+        for b in range(2, 7):
+            print(f"{a} {b} {a ** b}")
+
+display_power_table()
+Task 4: Sum of Digits
+Pseudocode:
+
+livecodeserver
+
+Copy
+1. Prompt user for an integer between 0 and 1000
+2. Convert integer to string and iterate through each character
+3. Convert each character back to integer and sum them
+4. Print the sum
+Python Code:
+
+python
+
+Run
+
+Copy
+def sum_of_digits():
+    number = int(input("Enter an integer between 0 and 1000: "))
+    total = sum(int(digit) for digit in str(number))
+    print(f"The sum of the digits is: {total}")
+
+sum_of_digits()
+Task 5: Convert Task 4 to Function with Testing
+Pseudocode:
+
+
+Copy
+1. Define function sum_of_digits(num)
+2. Convert num to string, iterate, sum digits
+3. Return sum
+4. Write tests for edge cases: 0, 1000, etc.
+Python Code:
+
+python
+
+Run
+
+Copy
+def sum_of_digits(num):
+    return sum(int(digit) for digit in str(num))
+
+# Test cases
+def test_sum_of_digits():
+    assert sum_of_digits(0) == 0
+    assert sum_of_digits(932) == 14
+    assert sum_of_digits(1000) == 1
+    assert sum_of_digits(999) == 27
+
+test_sum_of_digits()
+print("All tests passed.")
+Task 6: Future Day of the Week
+Pseudocode:
+
+
+Copy
+1. Prompt user for today's day (0-6)
+2. Prompt user for days elapsed
+3. Calculate future day as (today + elapsed) % 7
+4. Print today's and future day names
+Python Code:
+
+python
+
+Run
+
+Copy
+def future_day():
+    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    today = int(input("Enter today's day (0-6): "))
+    elapsed = int(input("Enter the number of days elapsed since today: "))
+    future = (today + elapsed) % 7
+    print(f"Today is {days[today]} and the future day is {days[future]}.")
+
+future_day()
+Task 7: Multiply Without * Symbol
+Pseudocode:
+
+
+Copy
+1. Define function multiply(a, b)
+2. Initialize result to 0
+3. For i in range(b):
+    a. Add a to result
+4. Return result
+5. Write tests for edge cases
+Python Code:
+
+python
+
+Run
+
+Copy
+def multiply(a, b):
+    result = 0
+    for _ in range(b):
+        result += a
+    return result
+
+# Test cases
+def test_multiply():
+    assert multiply(3, 4) == 12
+    assert multiply(0, 5) == 0
+    assert multiply(-1, 5) == -5
+
+test_multiply()
+print("All tests passed.")
+Task 8: Random Subtraction Problems
+Pseudocode:
+
+
+Copy
+1. Initialize score to 0
+2. For each problem:
+    a. Generate two random numbers
+    b. Present subtraction problem
+    c. Allow user to answer up to 10 times
+    d. Grade answers and provide feedback
+    e. Update score based on correct answers
+3. Print final score
+Python Code:
+
+python
+
+Run
+
+Copy
+import random
+
+def subtraction_problems():
+    score = 0
+    for _ in range(5):  # Generate 5 problems
+        a = random.randint(0, 99)
+        b = random.randint(0, a)  # Ensure b <= a
+        correct_answer = a - b
+
+        for attempt in range(10):
+            user_answer = int(input(f"What is {a} - {b}? "))
+            if user_answer == correct_answer:
+                print("Correct!")
+                score += 1
+                break
+            else:
+                print("Incorrect, try again.")
+        else:
+            print(f"The correct answer was {correct_answer}.")
+
+    print(f"Your final score is: {score}")
+
+subtraction_problems()
+This breakdown covers each of your tasks with corresponding Python implementations and pseudocode. Let me know if you need further assistance!
+

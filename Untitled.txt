@@ -1,0 +1,147 @@
+
+I'll provide the solutions to each problem with Python code and pseudocode.
+Problem 1: Guess the Sum
+Python Code
+Python
+import random
+
+def guess_sum():
+    num1 = random.randint(0, 99)
+    num2 = random.randint(0, 99)
+    
+    print(f"What is {num1} + {num2}?")
+    answer = int(input("Enter your answer: "))
+    
+    if answer == num1 + num2:
+        print("True")
+    else:
+        print("False")
+
+guess_sum()
+Pseudocode
+FUNCTION guess_sum
+    GENERATE two random integers num1 and num2 between 0 and 99
+    PRINT "What is num1 + num2?"
+    READ user's answer
+    IF answer is equal to num1 + num2 THEN
+        PRINT "True"
+    ELSE
+        PRINT "False"
+    END IF
+END FUNCTION
+Problem 2: Sort Three Numbers
+Python Code
+Python
+def sort_numbers():
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+    num3 = int(input("Enter third number: "))
+
+    numbers = [num1, num2, num3]
+    numbers.sort()
+
+    print(numbers)
+
+sort_numbers()
+Pseudocode
+FUNCTION sort_numbers
+    READ three numbers num1, num2, and num3
+    STORE numbers in a list
+    SORT the list in ascending order
+    PRINT the sorted list
+END FUNCTION
+Problem 3: Display Table
+Python Code
+Python
+def display_table():
+    print("a\tb\ta^b")
+    for i in range(1, 6):
+        print(f"{i}\t{i+1}\t{i**(i+1)}")
+
+display_table()
+Pseudocode
+FUNCTION display_table
+    PRINT header row
+    FOR i from 1 to 5
+        PRINT values for current row
+    END FOR
+END FUNCTION
+Problem 4: Sum of Digits
+Python Code
+Python
+def sum_of_digits(n):
+    return sum(int(digit) for digit in str(n))
+
+# Test cases
+print(sum_of_digits(932))  # Output: 14
+print(sum_of_digits(1234))  # Output: 10
+print(sum_of_digits(1000))  # Output: 1
+Pseudocode
+FUNCTION sum_of_digits(n)
+    CONVERT n to string
+    INITIALIZE sum to 0
+    FOR each character (digit) in string
+        CONVERT digit to integer and add to sum
+    END FOR
+    RETURN sum
+END FUNCTION
+Problem 5: Day of the Week
+Python Code
+Python
+def day_of_week():
+    today = int(input("Enter today's day (0-6): "))
+    days_elapsed = int(input("Enter number of days elapsed: "))
+
+    future_day = (today + days_elapsed) % 7
+
+    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    print(f"Today is {days[today]} and the future day is {days[future_day]}")
+
+day_of_week()
+Pseudocode
+FUNCTION day_of_week
+    READ today's day and number of days elapsed
+    CALCULATE future day using modulo 7
+    CONVERT days to names using list
+    PRINT result
+END FUNCTION
+Problem 6: Multiply Without Asterisk
+Python Code
+Python
+def multiply(a, b):
+    result = 0
+    for _ in range(b):
+        result += a
+    return result
+
+# Test cases
+print(multiply(5, 3))  # Output: 15
+print(multiply(10, 2))  # Output: 20
+print(multiply(7, 1))  # Output: 7
+Pseudocode
+FUNCTION multiply(a, b)
+    INITIALIZE result to 0
+    FOR b times
+        ADD a to result
+    END FOR
+    RETURN result
+END FUNCTION
+Problem 7: Random Subtraction Problems
+Python Code
+Python
+import random
+
+def subtraction_problems():
+    score = 0
+    for _ in range(10):
+        num1 = random.randint(1, 100)
+        num2 = random.randint(1, num1)
+        print(f"What is {num1} - {num2}?")
+        attempts = 0
+        while attempts < 10:
+            try:
+                answer = int(input("Enter your answer: "))
+                if answer == num1 - num2:
+                    print("Correct!")
+                    score +=
+Meta AI has reached its word limit for this prompt. To continue, try a more specific prompt.

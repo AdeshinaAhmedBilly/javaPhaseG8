@@ -1,0 +1,174 @@
+Task 1: Sum of Two Random Integers
+Pseudocode:
+
+
+Run
+Copy code
+1. Generate two random integers a and b under 100
+2. Prompt user to enter the sum of a and b
+3. If user input equals a + b
+    a. Print "True"
+   Else
+    a. Print "False"
+Python Code:
+
+python
+
+Run
+Copy code
+import random
+
+def check_sum():
+    a = random.randint(0, 99)
+    b = random.randint(0, 99)
+    user_sum = int(input(f"Enter the sum of {a} and {b}: "))
+    print(user_sum == a + b)
+
+check_sum()
+Task 2: Display Three Integers in Increasing Order
+Pseudocode:
+
+
+Run
+Copy code
+1. Prompt user to enter three integers
+2. Store integers in a list
+3. Sort the list
+4. Print the sorted list
+Python Code:
+
+python
+
+Run
+Copy code
+def sort_three_numbers():
+    numbers = []
+    for i in range(3):
+        num = int(input(f"Enter number {i + 1}: "))
+        numbers.append(num)
+    numbers.sort()
+    print(", ".join(map(str, numbers)))
+
+sort_three_numbers()
+Task 3: Display a Table of Powers
+Pseudocode:
+
+
+Run
+Copy code
+1. For a from 1 to 5
+    a. For b from 2 to 6
+        i. Calculate a ** b
+        ii. Print a, b, a ** b
+Python Code:
+
+python
+
+Run
+Copy code
+def display_power_table():
+    print("a b a**b")
+    for a in range(1, 6):
+        for b in range(2, 7):
+            print(f"{a} {b} {a ** b}")
+
+display_power_table()
+Task 4: Sum of Digits of an Integer
+Pseudocode:
+
+
+Run
+Copy code
+1. Prompt user to enter an integer between 0 and 1000
+2. Initialize sum to 0
+3. While integer > 0
+    a. Add integer % 10 to sum
+    b. Integer = integer // 10
+4. Print sum
+Python Code:
+
+python
+
+Run
+Copy code
+def sum_of_digits():
+    number = int(input("Enter an integer between 0 and 1000: "))
+    total = 0
+    while number > 0:
+        total += number % 10
+        number //= 10
+    print("Sum of digits:", total)
+
+sum_of_digits()
+Task 4 (Function with TDD)
+Pseudocode:
+
+
+Run
+Copy code
+1. Define function sum_digits(n)
+2. Initialize sum to 0
+3. While n > 0
+    a. Add n % 10 to sum
+    b. n = n // 10
+4. Return sum
+5. Write test cases for sum_digits
+Python Code:
+
+python
+
+Run
+Copy code
+def sum_digits(n):
+    total = 0
+    while n > 0:
+        total += n % 10
+        n //= 10
+    return total
+
+# Test cases
+def test_sum_digits():
+    assert sum_digits(932) == 14
+    assert sum_digits(0) == 0
+    assert sum_digits(1000) == 1
+    assert sum_digits(123) == 6
+    assert sum_digits(999) == 27
+
+test_sum_digits()
+print("All tests passed!")
+Task 5: Future Day of the Week
+Pseudocode:
+
+
+Run
+Copy code
+1. Prompt user to enter today's day (0-6)
+2. Prompt user to enter number of days to add
+3. Calculate future day as (today + days) % 7
+4. Print today's day and future day
+Python Code:
+
+python
+
+Run
+Copy code
+def future_day():
+    today = int(input("Enter today's day (0 for Sunday, 1 for Monday, ..., 6 for Saturday): "))
+    days_to_add = int(input("Enter the number of days to add: "))
+    future = (today + days_to_add) % 7
+    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    print(f"Today is {days[today]} and the future day is {days[future]}")
+
+future_day()
+Task 6: Multiply Two Numbers Without Using *
+Pseudocode:
+
+
+Run
+Copy code
+1. Define function multiply(a, b)
+2. Initialize result to 0
+3. For i from 0 to b
+    a. Add a to result
+4. Return result
+5. Write test cases for multiply
