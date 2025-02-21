@@ -1,0 +1,228 @@
+Here are the Java solutions to the given problems:
+
+Problem 1: Digit Frequency
+java
+
+Copy
+public class Main {
+    public static boolean digitFrequency(String num) {
+        for (int i = 0; i < num.length(); i++) {
+            int count = 0;
+            for (int j = 0; j < num.length(); j++) {
+                if (num.charAt(j) == (char) (i + '0')) {
+                    count++;
+                }
+            }
+            if (count != num.charAt(i) - '0') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(digitFrequency("1210")); // true
+    }
+}
+Problem 2: Sum of Unique Elements
+java
+
+Copy
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+    public static int sumOfUnique(int[] nums) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        for (int num : nums) {
+            countMap.put(num, countMap.getOrDefault(num, 0) + 1);
+        }
+        int sum = 0;
+        for (Map.Entry<Integer, Integer> entry : countMap.entrySet()) {
+            if (entry.getValue() == 1) {
+                sum += entry.getKey();
+            }
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 2};
+        System.out.println(sumOfUnique(nums)); // 4
+    }
+}
+Problem 3: Remove Duplicates
+java
+
+Copy
+import java.util.*;
+
+public class Main {
+    public static int[] removeDuplicates(int[] nums) {
+        Set<Integer> set = new LinkedHashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+        int[] result = new int[set.size()];
+        int i = 0;
+        for (int num : set) {
+            result[i++] = num;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 2, 3, 4, 4, 5, 6, 6, 7};
+        int[] result = removeDuplicates(nums);
+        System.out.println(Arrays.toString(result)); // [1, 2, 3, 4, 5, 6, 7]
+    }
+}
+Problem 4: Count Character Occurrences
+java
+
+Copy
+public class Main {
+    public static int countCharacterOccurrences(String word, char letter) {
+        int count = 0;
+        for (char c : word.toCharArray()) {
+            if (c == letter) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(countCharacterOccurrences("Hello World", 'o')); // 2
+    }
+}
+Problem 5: Check Prime Number
+java
+
+Copy
+public class Main {
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPrime(7)); // true
+    }
+}
+Problem 6: Merge and Sort Lists
+java
+
+Copy
+import java.util.*;
+
+public class Main {
+    public static List<Integer> mergeAndSort(List<Integer> list1, List<Integer> list2) {
+        List<Integer> mergedList = new ArrayList<>(list1);
+        mergedList.addAll(list2);
+        Collections.sort(mergedList, Collections.reverseOrder());
+        return mergedList;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list1 = Arrays.asList(3, 1, 5);
+        List<Integer> list2 = Arrays.asList(9, 3, 2);
+        System.out.println(mergeAndSort(list1, list2)); // [9, 5, 3, 3, 2, 1]
+    }
+}
+Problem 7: Find Factors
+java
+
+Copy
+import java.util.*;
+
+public class Main {
+    public static List<Integer> findFactors(int num) {
+        List<Integer> factors = new ArrayList<>();
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                factors.add(i);
+            }
+        }
+        return factors;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findFactors(24)); // [1, 2, 3, 4, 6, 8, 12, 24]
+    }
+}
+Problem 8: Find Index of Largest Element
+java
+
+Copy
+public class Main {
+    public static int findIndexOfLargestElement(int[] nums) {
+        int max = nums[0];
+        int index = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > max) {
+                max = nums[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 5, 3, 4, 5, 5};
+        System.out.println(findIndexOfLargestElement(nums)); // 1
+    }
+}
+Problem 9: Check Anagram
+java
+
+Copy
+import java.util.Arrays;
+
+public class Main {
+    public static boolean isAnagram(String s, String t) {
+        char[] sArray = s.toCharArray();
+        char[] tArray = t.toCharArray();
+        Arrays.sort(sArray);
+        Arrays.sort(tArray);
+        return Arrays.equals(sArray, tArray);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isAnagram("anagram", "nagaram")); // true
+    }
+}
+Problem 10: Find Indices of Two Numbers
+java
+
+Copy
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main {
+    public static int[] findIndices(int[] nums, int target) {
+        Map<Integer, Integer> numToIndex = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (numToIndex.containsKey(complement)) {
+                return new int[] { numToIndex.get(complement), i };
+            }
+            numToIndex.put(nums[i], i);
+        }
+        return new int[] {};
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = findIndices(nums, target);
+        System.out.println(Arrays.toString(result)); // [0, 1]
+    }
+}

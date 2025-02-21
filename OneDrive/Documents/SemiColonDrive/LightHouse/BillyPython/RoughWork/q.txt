@@ -1,0 +1,258 @@
+
+JAVA PHASEGATE
+
+Use Java to solve the following problems of functions and methods while crating the methods bit by bit so that the code can be readable and writeable
+
+[1] You are given a string num of digits(0-9). Each character in the string represents how many times the digit corresponding to its index appears in the string.
+
+Return True if the string satisfies the rule for every index, otherwise Return False.
+
+Example 1
+    input: "1210"
+    output: true
+
+Explanation 
+    At index 0, the digit 0 appears 1 time
+    At index 1, the digit 1 appears 2 times
+    At index 2, the digit 2 appears 0 times
+
+[3] You are given an integer array nums. The unique elements of an array are the elements that appear exactly once in the array.
+
+Example 1
+    input: nums = [1,2,3,2]
+    output = 4
+Explanation: The unique elements are [1,3], and the sum is 4
+
+Example 2
+    input: nums = [1,1,1,1,1]
+    output: 0
+
+[4] Write a method that eliminates duplicate values from an integer array. The method should take an array of integers as input and return a new array containing only the unique values from the original array, preserving their first occurrence order.
+
+Example 1:
+
+Input:
+Enter 10 integers: [1,2,2,3,4,4,5,6,6,7]
+Output:
+The unique integers are: [1,2,3,4,5,6,7]
+
+Example 2: 
+
+Input: 
+Enter 10 integers: [9,8,7,7,6,5,5,5,4,3]
+Output:
+The unique integers are: [9,8,7,6,5,4,3]
+
+[6]. Write a method that counts the number of occurrences of a specified character in a given string
+
+Example 1
+Input: Word: = "Hello World" letter = "o"
+output: 2
+
+Example 2:
+Input: Word = "OpenAI" letter = "a"
+output: 1
+
+Example 3:
+Input: Word = "Java" letter = "k"
+Output: 0
+
+[10]. Write a method which takes in a integer and return true if it is a prime number
+
+Example 1:
+    input: 7
+    Output: False
+
+Example 2:
+    Input: 3
+    Output: True
+
+[8]. Write a method that takes two unsorted lists and returns a new sorted list in descending order
+
+Example 1:
+Input1: [3,1,5] Input 2: [9,3,2]
+Output: [8,6,5,4,3,1]
+
+Example 2
+Input: [7,4,1] Input 2: [9,3,2]
+Output:[9,7,4,3,2,1]
+
+[11]. Write a method which takes in an integer and return the factors of the number
+
+Example 1:
+Input: 7
+Output: [1,7]
+
+Example 2:
+Input: 24
+Output: [1,2,3,4,5,6,8,12,24]
+
+[7]. Write a method that finds the smallest index of the largest element in an array. If the array has multiple ocurrencs of the largest element, the method should return the index of the first occurences.
+
+Example 1:
+Input: {1,5,3,4,5,5}
+Output: 1
+
+Example 2:
+Input: {1,2,8,20,5}
+Output: 3
+
+[12]. Given two strings and return true if t is an anagram of s, and false otherwise
+
+Example 1:
+    Input: s = "anagram", t = "nagaram"
+    Output: true
+
+Example 2:
+    Input: s = "rat", t = "cat"
+    Output: False
+
+[14]. Given an array of ntegers nums and an integer target, return indices of the two numbers such that they add up to target
+
+Example 1:
+    Input: nums = [2,7,11,15], target = 9
+    Output: [0'1]
+
+Example 2:
+    Input: nums = [3,2,4]
+    Output: [1,2]
+Show more
+Answer
+Here's how we can approach each problem step-by-step using Java:
+
+1. Check Digit Count
+java
+public class Solution {
+    public boolean checkDigitCount(String num) {
+        for (int i = 0; i < num.length(); i++) {
+            char digit = num.charAt(i);
+            int count = (int) num.chars().filter(c -> c == '0' + i).count();
+            if (count != digit - '0') return false;
+        }
+        return true;
+    }
+}
+
+2. Sum of Unique Elements
+java
+public class Solution {
+    public int sumOfUnique(int[] nums) {
+        Map<Integer, Integer> count = new HashMap<>();
+        for (int num : nums) {
+            count.put(num, count.getOrDefault(num, 0) + 1);
+        }
+        return count.entrySet().stream()
+            .filter(e -> e.getValue() == 1)
+            .mapToInt(e -> e.getKey())
+            .sum();
+    }
+}
+
+3. Remove Duplicates
+java
+public class Solution {
+    public int[] removeDuplicates(int[] nums) {
+        Set<Integer> seen = new LinkedHashSet<>();
+        for (int num : nums) {
+            seen.add(num);
+        }
+        return seen.stream().mapToInt(Integer::intValue).toArray();
+    }
+}
+
+4. Count Character Occurrences
+java
+public class Solution {
+    public int countOccurrences(String word, char letter) {
+        return (int) word.chars().filter(c -> c == letter).count();
+    }
+}
+
+5. Check for Prime Number
+java
+public class Solution {
+    public boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
+
+6. Merge and Sort Lists
+java
+public class Solution {
+    public int[] mergeAndSort(int[] arr1, int[] arr2) {
+        int[] merged = new int[arr1.length + arr2.length];
+        System.arraycopy(arr1, 0, merged, 0, arr1.length);
+        System.arraycopy(arr2, 0, merged, arr1.length, arr2.length);
+        Arrays.sort(merged);
+        for (int i = 0; i < merged.length / 2; i++) {
+            int temp = merged[i];
+            merged[i] = merged[merged.length - 1 - i];
+            merged[merged.length - 1 - i] = temp;
+        }
+        return merged;
+    }
+}
+
+7. Find Factors
+java
+public class Solution {
+    public List<Integer> getFactors(int num) {
+        List<Integer> factors = new ArrayList<>();
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                factors.add(i);
+            }
+        }
+        return factors;
+    }
+}
+
+8. Smallest Index of Largest Element
+java
+public class Solution {
+    public int smallestIndex(int[] arr) {
+        int max = Integer.MIN_VALUE;
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+}
+
+9. Check Anagram
+java
+public class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) return false;
+        char[] sChars = s.toCharArray();
+        char[] tChars = t.toCharArray();
+        Arrays.sort(sChars);
+        Arrays.sort(tChars);
+        return Arrays.equals(sChars, tChars);
+    }
+}
+
+10. Two Sum
+java
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+        return new int[]{}; // This should never be reached if the input is valid
+    }
+}
+

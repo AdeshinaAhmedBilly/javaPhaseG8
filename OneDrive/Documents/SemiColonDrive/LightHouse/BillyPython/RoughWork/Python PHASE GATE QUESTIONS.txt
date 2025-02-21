@@ -1,0 +1,44 @@
+PHASE GATE QUESTIONS
+
+1. Write a program that generates two integers under 100 and prompts the user to enter the sum of these two integers. The program then reports true if the answer is correct, false otherwise
+
+2. Write a program that prompts the user to enter three integers and displays them in increasing order.
+
+Here is a sample run
+Enter first number: 6 Enter second number: 4 Enter third number: 7
+output: 4, 6, 7
+
+3. Write a program that displays the following table:
+
+a	b	a**b
+1	2	1
+2	3	8
+3	4	81
+4	5	1024
+5	6	15625
+
+4. Write a program that reads an integer between 0 and 1000 and adds all the digits in the integer.
+
+For example, if an integer is 932, the sum of all its digits is 14.
+
+5. Convert task 4 to function, use test driven development and ensure you write test for possible edge cases.
+
+6. Write a program that prompts the user to enter an integer for today’s day of the week (Sunday is 0, Monday is 1, ..., and Saturday is 6). Also prompt the user to enter the number of days after today for a future day and display the future day of the week.
+
+Here is a sample run:
+
+Enter today's day: 1
+Enter the number of days elapsed since today: 3 output: Today is Monday and the future day is Thursday
+
+7. Write a function that takes in two numbers and multiply and return the result without using * symbol
+
+Use TDD, ensure you write test for possible edge cases
+
+8. Create a program generates random subtraction problems and present the question for them in correct order
+Allows users to attempt each problem up to 10 times.
+Grades user answers and provides feedback (correct or incorrect).
+
+Calculates and displays the user's final score after all attempts.
+note: different user should get different random question
+
+

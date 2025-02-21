@@ -1,0 +1,12 @@
+ERRORS
+
+Task 1
+
+The error you're encountering happens because you have a file named random.py in your project directory, which shadows the standard library random module. When you try to import random, Python loads your local random.py file instead of the built-in random module, causing the error you're seeing.
+
+To fix this:
+
+Rename your random.py file to something else, such as my_random.py or another descriptive name.
+After renaming the file, make sure to delete any associated random.pyc or __pycache__ directories in your project folder to avoid conflicts.
+Try running your script again.
+This should resolve the issue and allow you to access the random.randint function from the standard library.
